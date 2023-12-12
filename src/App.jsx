@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./assets/styles/style.module.css";
 import image from "./assets/img/hogar.jpg";
 import { ButtonSelectorComponent } from "./components/ButtonSelectorComponent";
@@ -8,6 +8,7 @@ function App() {
     const [color, setColor] = useState(null);
     const [positionMouse, setPositionMouse] = useState({ x: 0, y: 0 });
     const [colorName, setColorName] = useState("");
+    const portaPapel = useRef(null);
 
     /* POPUP movimiento*/
     const onHandleMouse = (event) => {
@@ -29,6 +30,11 @@ function App() {
 
     /* Copiar al portapapel elemento seleccionado 
     con execCommand()*/
+    const onHandleCopy = () => {
+        const text = portaPapel.current.select();
+        const copiText = document.execCommand("copy");
+        console.log(copiText);
+    };
 
     return (
         <>
@@ -53,8 +59,17 @@ function App() {
                                 style={{ backgroundColor: color }}
                             ></span>
 
-                            <a href="#">
+                            <a href="#" onClick={onHandleCopy}>
                                 <span className={style.action__result}>{color}</span>
+                                <textarea
+                                    ref={portaPapel}
+                                    name=""
+                                    id="textarea"
+                                    cols="30"
+                                    rows="10"
+                                    style={{ display: "none" }}
+                                    value={color}
+                                ></textarea>
                             </a>
                             <div
                                 className={style.action__popup}
@@ -65,6 +80,7 @@ function App() {
                             >
                                 {colorName}
                             </div>
+                            {/* lef y top corresponde a (x,y) como si fuera un vector en el plano carteciano, de esta manera estoy dando las cordenadas para el popup */}
                             {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese la do así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
                         </div>
                     </div>
