@@ -125,7 +125,19 @@ body {
 }
 
 .action__result {
+    display: block;
     color: rgb(38, 37, 36);
+    transition: all 300ms;
+}
+
+.action__result:hover {
+    color: #347886;
+    transform: scale(1.1, 1.1);
+}
+
+.action__result:active {
+    color: rgb(38, 37, 36);
+    transform: scale(1, 1);
 }
 
 /** POPUP */

@@ -31,7 +31,7 @@ function App() {
     /* Copiar al portapapel elemento seleccionado 
     con execCommand()*/
     const onHandleCopy = () => {
-        const text = portaPapel.current.select();
+        portaPapel.current.select();
         const copiText = document.execCommand("copy");
         console.log(copiText);
     };
@@ -53,24 +53,30 @@ function App() {
 
                     <div className={style.main__action}>
                         <ButtonSelectorComponent setColor={setColor} />
+
                         <div className={style.action__result_container} onMouseMove={onHandleMouse}>
+                            {/* color de caja*/}
                             <span
                                 className={style.action__result_box}
                                 style={{ backgroundColor: color }}
                             ></span>
 
+                            {/* resultado hexa */}
                             <a href="#" onClick={onHandleCopy}>
                                 <span className={style.action__result}>{color}</span>
+                                {/* textarea para almacenar, seleccionar y copiar el valor  */}
                                 <textarea
                                     ref={portaPapel}
                                     name=""
                                     id="textarea"
                                     cols="30"
                                     rows="10"
-                                    style={{ display: "none" }}
                                     value={color}
+                                    style={{ opacity: "0", position: "absolute", zIndex: "1" }}
                                 ></textarea>
                             </a>
+
+                            {/* Popup */}
                             <div
                                 className={style.action__popup}
                                 style={{
@@ -80,6 +86,7 @@ function App() {
                             >
                                 {colorName}
                             </div>
+
                             {/* lef y top corresponde a (x,y) como si fuera un vector en el plano carteciano, de esta manera estoy dando las cordenadas para el popup */}
                             {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese la do así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
                         </div>
