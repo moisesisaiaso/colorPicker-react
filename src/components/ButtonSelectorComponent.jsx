@@ -1,6 +1,6 @@
 import style from "../assets/styles/style.module.css";
 
-export const ButtonComponent = ({ setColor }) => {
+export const ButtonSelectorComponent = ({ setColor }) => {
     const colorPicker = async () => {
         if (!window.EyeDropper) {
             setColor("Tu navegador no soporta la API de EyeDropper");
