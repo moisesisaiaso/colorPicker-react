@@ -1,9 +1,9 @@
 import style from "../assets/styles/style.module.css";
 
-export const ButtonSelectorComponent = ({ setColor }) => {
+export const ButtonSelectorComponent = ({ setColorHexa }) => {
     const colorPicker = async () => {
         if (!window.EyeDropper) {
-            setColor("Tu navegador no soporta la API de EyeDropper");
+            setColorHexa("Tu navegador no soporta la API de EyeDropper");
             return;
         }
 
@@ -11,7 +11,7 @@ export const ButtonSelectorComponent = ({ setColor }) => {
         const { sRGBHex } = await eyeDropper.open();
 
         const hexResult = sRGBHex.toUpperCase();
-        setColor(hexResult);
+        setColorHexa(hexResult);
     };
     return (
         <>

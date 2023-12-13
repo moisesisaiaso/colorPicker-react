@@ -3,12 +3,20 @@ import style from "./assets/styles/style.module.css";
 import image from "./assets/img/hogar.jpg";
 import { ButtonSelectorComponent } from "./components/ButtonSelectorComponent";
 import { Helmet } from "react-helmet";
+import { ButtonConversionsComponent } from "./components/ButtonConversionsComponent";
 
+const models = ["Hexa", "CMYK", "RGB"];
 function App() {
-    const [color, setColor] = useState(null);
+    const [colorHexa, setColorHexa] = useState(null);
+    const [colorModel, setColorModel] = useState(null);
+    const [selectedModel, setSelectedModel] = useState("Hexa");
     const [positionMouse, setPositionMouse] = useState({ x: 0, y: 0 });
     const [colorName, setColorName] = useState("");
+
     const portaPapel = useRef(null);
+
+    /*  const hexaCorto = colorModel.slice(1, colorModel.length);
+    console.log(hexaCorto); */
 
     /* POPUP movimiento*/
     const onHandleMouse = (event) => {
@@ -19,21 +27,20 @@ function App() {
 
     /* Nombre del color */
     useEffect(() => {
-        if (color) {
-            let ntcArray = ntc.name(color);
+        if (colorHexa) {
+            let ntcArray = ntc.name(colorHexa);
             const [, name, coincidencia] = ntcArray;
             console.log("coincidencia: " + coincidencia);
             setColorName(name);
             console.log(name);
         }
-    }, [color]);
+    }, [colorHexa]);
 
     /* Copiar al portapapel elemento seleccionado 
     con execCommand()*/
     const onHandleCopy = () => {
         portaPapel.current.select();
-        const copiText = document.execCommand("copy");
-        console.log(copiText);
+        document.execCommand("copy");
     };
 
     return (
@@ -52,44 +59,72 @@ function App() {
                     </div>
 
                     <div className={style.main__action}>
-                        <ButtonSelectorComponent setColor={setColor} />
+                        <ButtonSelectorComponent setColorHexa={setColorHexa} />
 
-                        <div className={style.action__result_container} onMouseMove={onHandleMouse}>
-                            {/* color de caja*/}
-                            <span
-                                className={style.action__result_box}
-                                style={{ backgroundColor: color }}
-                            ></span>
+                        {/* mientras colorHexa sea false entonces no me renderices esto */}
+                        {colorHexa && (
+                            <>
+                                <div
+                                    className={style.action__result_container}
+                                    onMouseMove={onHandleMouse}
+                                >
+                                    {/* color de caja*/}
+                                    <span
+                                        className={style.action__result_box}
+                                        style={{ backgroundColor: colorHexa }}
+                                    ></span>
 
-                            {/* resultado hexa */}
-                            <a href="#" onClick={onHandleCopy}>
-                                <span className={style.action__result}>{color}</span>
-                                {/* textarea para almacenar, seleccionar y copiar el valor  */}
-                                <textarea
-                                    ref={portaPapel}
-                                    name=""
-                                    id="textarea"
-                                    cols="30"
-                                    rows="10"
-                                    value={color}
-                                    style={{ opacity: "0", position: "absolute", zIndex: "1" }}
-                                ></textarea>
-                            </a>
+                                    {/* resultado hexa */}
+                                    <a href="#" onClick={onHandleCopy}>
+                                        <span className={style.action__result}>{colorModel}</span>
+                                        {/* textarea para almacenar, seleccionar y copiar el valor  */}
+                                        <textarea
+                                            ref={portaPapel}
+                                            name=""
+                                            id="textarea"
+                                            cols="30"
+                                            rows="10"
+                                            value={colorModel}
+                                            style={{
+                                                opacity: "0",
+                                                position: "absolute",
+                                                zIndex: "1",
+                                                width: "2rem",
+                                                height: "2rem",
+                                                top: "0",
+                                            }}
+                                        ></textarea>
+                                    </a>
 
-                            {/* Popup */}
-                            <div
-                                className={style.action__popup}
-                                style={{
-                                    left: `${positionMouse.x + 10}px`,
-                                    top: `${positionMouse.y + 10}px`,
-                                }}
-                            >
-                                {colorName}
-                            </div>
+                                    {/* Popup */}
+                                    <div
+                                        className={style.action__popup}
+                                        style={{
+                                            left: `${positionMouse.x + 10}px`,
+                                            top: `${positionMouse.y + 10}px`,
+                                        }}
+                                    >
+                                        {colorName}
+                                    </div>
 
-                            {/* lef y top corresponde a (x,y) como si fuera un vector en el plano carteciano, de esta manera estoy dando las cordenadas para el popup */}
-                            {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese la do así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
-                        </div>
+                                    {/* lef y top corresponde a (x,y) como si fuera un vector en el plano carteciano, de esta manera estoy dando las cordenadas para el popup */}
+                                    {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese la do así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
+                                </div>
+
+                                <div className={style.main__conversions}>
+                                    {models.map((model, i) => (
+                                        <ButtonConversionsComponent
+                                            key={i}
+                                            model={model}
+                                            setColorModel={setColorModel}
+                                            colorHexa={colorHexa}
+                                            selectedModel={selectedModel}
+                                            setSelectedModel={setSelectedModel}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
                 </main>
                 <footer> &copy; DESARROLADO POR MOISES ORTIZ GRACIA </footer>

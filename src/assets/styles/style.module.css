@@ -39,6 +39,9 @@ body {
     flex-wrap: wrap;
 }
 
+.container__header {
+}
+
 .container__title {
     font-size: 2rem;
     background: #fff;
@@ -59,6 +62,13 @@ body {
     left: 0;
 }
 
+.container__main {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .main__image {
     display: flex;
     flex-wrap: wrap;
@@ -75,17 +85,18 @@ body {
     border: 1px solid #e5e5e5;
 }
 
-.container__main {
+.main__action {
     display: flex;
-    width: 100%;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    row-gap: 30px;
 }
+
 .action__btn {
     width: 10rem;
     height: 4rem;
     padding: 1rem;
-    margin-bottom: 0.7rem;
     background-color: #fbfbfb;
     border-radius: 0.5rem;
     border: 1px solid #e5e5e5;
@@ -94,6 +105,7 @@ body {
     font-size: 0.9rem;
     letter-spacing: 1px;
     color: rgb(38, 37, 36);
+    transition: all 200ms;
 }
 
 .action__btn:hover {
@@ -108,12 +120,11 @@ body {
 }
 
 .action__result_container {
-    display: block;
-    height: 3rem;
-    padding: 0.8rem 1em;
     display: flex;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: center;
     align-items: center;
+    column-gap: 10px;
 }
 
 .action__result_box {
@@ -141,7 +152,6 @@ body {
 }
 
 /** POPUP */
-
 .action__popup {
     display: none;
     position: absolute;
@@ -155,6 +165,34 @@ body {
 }
 .action__result_container:hover .action__popup {
     display: block;
+}
+
+/** boton-modelos hexa, rbg , cmyk*/
+
+.main__conversions {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 10px;
+}
+.action__btn_models {
+    width: 5rem;
+    height: 3rem;
+    padding: 1rem;
+}
+
+.action__btn_selected {
+    width: 5rem;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: FredokaOne;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: rgb(38, 37, 36);
+    background-color: #eff1f7;
+    border: 2px solid #e5e5e5;
 }
 
 footer {
