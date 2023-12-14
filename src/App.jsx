@@ -68,7 +68,7 @@ function App() {
 
                         {/* mientras colorHexa sea false entonces no me renderices esto */}
                         {colorHexa !== null ||
-                        colorHexa === "Tu navegador no soporta la API de EyeDropper" ? (
+                        colorHexa !== "Tu navegador no soporta la API de EyeDropper" ? (
                             <>
                                 <div
                                     className={style.action__result_container}
