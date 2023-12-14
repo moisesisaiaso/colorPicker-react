@@ -62,7 +62,7 @@ function App() {
                         <ButtonSelectorComponent setColorHexa={setColorHexa} />
 
                         {/* mientras colorHexa sea false entonces no me renderices esto */}
-                        {colorHexa && (
+                        {colorModel && (
                             <>
                                 <div
                                     className={style.action__result_container}
