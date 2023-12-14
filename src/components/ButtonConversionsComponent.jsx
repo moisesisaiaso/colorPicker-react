@@ -34,12 +34,6 @@ export const ButtonConversionsComponent = ({
 
     const colorCMYK = `cmyk(${c}%, ${m}%, ${y}%, ${k}%)`;
 
-    useEffect(() => {
-        /* esto permite que siempre que se utilice el cuenta gotas por defecto pinte el color en Hexadecimal, ya que al utilizar el cuenta gotas estoy recien obteniendo el color para luego porder hacer las conversiones a los distintos modelos si así se requiere */
-        setSelectedModel("Hexa");
-        setColorModel(colorHexa);
-    }, [colorHexa]);
-
     const onHandleConversion = (model) => {
         if (model === "Hexa") {
             setSelectedModel("Hexa");

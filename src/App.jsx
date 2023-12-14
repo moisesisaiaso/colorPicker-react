@@ -15,9 +15,6 @@ function App() {
 
     const portaPapel = useRef(null);
 
-    /*  const hexaCorto = colorModel.slice(1, colorModel.length);
-    console.log(hexaCorto); */
-
     /* POPUP movimiento*/
     const onHandleMouse = (event) => {
         setPositionMouse({ x: event.clientX, y: event.clientY });
@@ -42,6 +39,15 @@ function App() {
         portaPapel.current.select();
         document.execCommand("copy");
     };
+
+    /* modelo de conversion por defecto */
+    useEffect(() => {
+        /* esto permite que siempre que se utilice el cuenta gotas por defecto pinte el color en Hexadecimal, ya que al utilizar el cuenta gotas estoy recien obteniendo el color para luego porder hacer las conversiones a los distintos modelos si así se requiere */
+        if (colorHexa) {
+            setSelectedModel("Hexa");
+        }
+        setColorModel(colorHexa);
+    }, [colorHexa]);
 
     return (
         <>
