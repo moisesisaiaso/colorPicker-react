@@ -39,9 +39,6 @@ body {
     flex-wrap: wrap;
 }
 
-.container__header {
-}
-
 .container__title {
     font-size: 2rem;
     background: #fff;
