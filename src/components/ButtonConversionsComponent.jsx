@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import style from "../assets/styles/style.module.css";
 export const ButtonConversionsComponent = ({
     model,

@@ -67,7 +67,7 @@ function App() {
                         <ButtonSelectorComponent setColorHexa={setColorHexa} />
 
                         {/* mientras colorHexa sea false entonces no me renderices esto */}
-                        {colorHexa !== null ||
+                        {colorHexa !== null &&
                         colorHexa !== "Tu navegador no soporta la API de EyeDropper" ? (
                             <>
                                 <div
