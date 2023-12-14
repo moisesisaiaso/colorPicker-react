@@ -43,9 +43,8 @@ function App() {
     /* modelo de conversion por defecto */
     useEffect(() => {
         /* esto permite que siempre que se utilice el cuenta gotas por defecto pinte el color en Hexadecimal, ya que al utilizar el cuenta gotas estoy recien obteniendo el color para luego porder hacer las conversiones a los distintos modelos si así se requiere */
-        if (colorHexa) {
-            setSelectedModel("Hexa");
-        }
+
+        setSelectedModel("Hexa");
         setColorModel(colorHexa);
     }, [colorHexa]);
 
@@ -68,7 +67,8 @@ function App() {
                         <ButtonSelectorComponent setColorHexa={setColorHexa} />
 
                         {/* mientras colorHexa sea false entonces no me renderices esto */}
-                        {colorModel && (
+                        {colorHexa !== null ||
+                        colorHexa === "Tu navegador no soporta la API de EyeDropper" ? (
                             <>
                                 <div
                                     className={style.action__result_container}
@@ -129,6 +129,10 @@ function App() {
                                         />
                                     ))}
                                 </div>
+                            </>
+                        ) : (
+                            <>
+                                <div>{colorHexa}</div>
                             </>
                         )}
                     </div>
