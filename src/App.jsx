@@ -4,9 +4,11 @@ import image from "./assets/img/hogar.jpg";
 import { ButtonSelectorComponent } from "./components/ButtonSelectorComponent";
 import { Helmet } from "react-helmet";
 import { ButtonConversionsComponent } from "./components/ButtonConversionsComponent";
+import { ButtonImageComponent } from "./components/ButtonImageComponent";
 
 const models = ["Hexa", "CMYK", "RGB"];
 function App() {
+    const [uploadImage, setUploadImage] = useState("");
     const [colorHexa, setColorHexa] = useState(null);
     const [colorModel, setColorModel] = useState(null);
     const [selectedModel, setSelectedModel] = useState("Hexa");
@@ -60,7 +62,12 @@ function App() {
 
                 <main className={style.container__main}>
                     <div className={style.main__image}>
-                        <img src={image} alt="image" className={style.image__img} />
+                        <ButtonImageComponent setUploadImage={setUploadImage} />
+                        <img
+                            src={uploadImage ? uploadImage : image}
+                            alt="image"
+                            className={style.image__img}
+                        />
                     </div>
 
                     <div className={style.main__action}>
@@ -132,7 +139,7 @@ function App() {
                             </>
                         ) : (
                             <>
-                                <div>{colorHexa}</div>
+                                <div style={{ textAlign: "center" }}>{colorHexa}</div>
                             </>
                         )}
                     </div>
