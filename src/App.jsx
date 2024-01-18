@@ -62,7 +62,6 @@ function App() {
 
                 <main className={style.container__main}>
                     <div className={style.main__image}>
-                        <ButtonImageComponent setUploadImage={setUploadImage} />
                         <img
                             src={uploadImage ? uploadImage : image}
                             alt="image"
@@ -71,6 +70,7 @@ function App() {
                     </div>
 
                     <div className={style.main__action}>
+                        <ButtonImageComponent setUploadImage={setUploadImage} />
                         <ButtonSelectorComponent setColorHexa={setColorHexa} />
 
                         {/* mientras colorHexa sea false entonces no me renderices esto */}

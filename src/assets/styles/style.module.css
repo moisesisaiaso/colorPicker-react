@@ -9,6 +9,12 @@ a {
 }
 
 :root {
+    --color-fondo: #eff1f7;
+    --color-principal: #fbfbfb;
+    --color-border: #e5e5e5;
+    --color-shadow: rgb(150, 148, 148);
+    --color-primaryText: rgb(38, 37, 36);
+    --color-secundaryText: gray;
     font-size: 16px;
 }
 @font-face {
@@ -17,12 +23,17 @@ a {
 }
 
 @font-face {
+    font-family: RalewayLight;
+    src: url(../fonts/Raleway-Light.ttf) format("trueType");
+}
+
+@font-face {
     font-family: FredokaOne;
     src: url(../fonts/FredokaOne-Regular.ttf) format("truetype");
 }
 
 body {
-    background-color: #eff1f7;
+    background-color: var(--color-fondo);
     font-family: FredokaOne;
     letter-spacing: 1px;
 }
@@ -81,7 +92,7 @@ body {
     object-fit: cover;
     aspect-ratio: 4/3;
     border-radius: 0.5rem;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--color-border);
 }
 
 .main__action {
@@ -93,23 +104,23 @@ body {
 }
 
 .action__btn {
-    width: 10rem;
+    width: 25rem;
     height: 4rem;
     padding: 1rem;
-    background-color: #fbfbfb;
+    background-color: var(--color-principal);
     border-radius: 0.5rem;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0px 1px 2px rgb(150, 148, 148);
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 1px 2px var(--color-shadow);
     font-family: FredokaOne;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: rgb(38, 37, 36);
+    color: var(--color-primaryText);
     transition: all 200ms;
 }
 
 .action__btn:hover {
-    background-color: #eff1f7;
-    border: 2px solid #e5e5e5;
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-border);
     box-shadow: none;
     cursor: pointer;
 }
@@ -128,7 +139,7 @@ body {
 
 .action__result_box {
     display: block;
-    background-color: #eff1f7;
+    background-color: var(--color-fondo);
     width: 1.6rem;
     height: 1.6rem;
     border: 2px solid #f6f6f7;
@@ -136,7 +147,7 @@ body {
 
 .action__result {
     display: block;
-    color: rgb(38, 37, 36);
+    color: var(--color-primaryText);
     transition: all 300ms;
 }
 
@@ -146,7 +157,7 @@ body {
 }
 
 .action__result:active {
-    color: rgb(38, 37, 36);
+    color: var(--color-primaryText);
     transform: scale(1, 1);
 }
 
@@ -154,7 +165,7 @@ body {
 .action__popup {
     display: none;
     position: absolute;
-    background-color: #e5e5e5;
+    background-color: var(--color-border);
     padding: 0.6rem 1rem;
     z-index: 2;
     border: 1px solid #f6f6f7;
@@ -189,58 +200,55 @@ body {
     font-family: FredokaOne;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: rgb(38, 37, 36);
-    background-color: #eff1f7;
-    border: 2px solid #e5e5e5;
+    color: var(--color-primaryText);
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-border);
 }
 
 /** button image  */
-.image__button {
+
+.action__upload {
+    height: 9rem;
+    width: 25rem;
+    background-color: var(--color-principal);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px -6px #bec0c7;
+}
+
+.upload__inputContainer {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    z-index: 1;
-    top: 0.5rem;
-    right: 0.4rem;
-    width: 2.5rem;
-    height: 2.7rem;
-    transition: all 300ms;
-    cursor: pointer;
-    /* From https://css.glass */
-
-    background: rgba(255, 255, 255, 0.28);
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15.3px);
-    -webkit-backdrop-filter: blur(15.3px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.image__button:hover {
-    transform: scale(1.05);
-}
-
-.button__img {
-    display: block;
-    width: 35px;
-    object-fit: cover;
-}
-
-.image__input {
-    position: absolute;
-    z-index: 5;
+    border: 1px dashed;
+    border-radius: 6px;
+    padding: 0.5rem;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+    row-gap: 0.5rem;
+}
+
+input {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
     opacity: 0;
+}
+
+.upload__meta {
+    text-align: center;
+    font-size: 0.7rem;
+    color: black;
+    padding: 0 1rem;
+    font-family: RalewayLight;
 }
 
 footer {
     text-align: center;
-    color: gray;
+    color: var(--color-secundaryText);
     font-family: Raleway;
     font-size: 0.8rem;
     margin-bottom: -30px;
