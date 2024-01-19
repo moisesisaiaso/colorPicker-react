@@ -50,3 +50,36 @@ export const ButtonImageComponent = ({ setUploadImage }) => {
         </>
     );
 };
+
+/* 
+ Calculo de posición de horas, segundos y minutos mediante grados
+ 
+ -Un circulo tiene 360 grados - el reloj en este caso será representado como este circulo donde dividimos para cada hora, minutos y segundos un segmento en grados.
+
+
+ --------Horas-------
+
+ se puede calcular la posición de la hora atravez de los grados dividimos el curculo de 360 grados para las 12horas:
+
+ 360/12 = 30
+
+ 30 representa cada segmento en grados que representa cada hora de esta forma podemos obtener la posición de la hora multiplicando la hora por el segmento (30):
+ 
+9 x 30 = 270          --
+
+270 es la posición en grados de la hora 9
+
+
+
+-------Minutos y segundos-------
+
+De igual forma los minutos se deben dividir en segmentos ya que tenemos 60min dividimos los 360 grados para los 60min
+
+360/60 = 6 
+
+6 es el segmento en grados que representa cada minuto, es decir si queremos saber la posición solo multiplicamos los minutos por el segmento: 
+
+5 x 6 = 30                --
+
+los minutis funcionan de igual forma
+*/

@@ -11,7 +11,8 @@ a {
 :root {
     --color-fondo: #eff1f7;
     --color-principal: #fbfbfb;
-    --color-border: #e5e5e5;
+    --color-border-gray: #e5e5e5;
+    --color-border-light: #f6f6f7;
     --color-shadow: rgb(150, 148, 148);
     --color-primaryText: rgb(38, 37, 36);
     --color-secundaryText: gray;
@@ -40,14 +41,13 @@ body {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0vh auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 0 5px;
-    flex-wrap: wrap;
 }
 
 .container__title {
@@ -85,6 +85,9 @@ body {
     margin: 1rem 0;
     max-width: 30rem;
     height: 23rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 5px 15px -6px #c7c4be;
 }
 
 .image__img {
@@ -92,7 +95,8 @@ body {
     object-fit: cover;
     aspect-ratio: 4/3;
     border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 5px 15px -6px #c7c4be;
 }
 
 .main__action {
@@ -109,7 +113,7 @@ body {
     padding: 1rem;
     background-color: var(--color-principal);
     border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-gray);
     box-shadow: 0px 1px 2px var(--color-shadow);
     font-family: FredokaOne;
     font-size: 0.9rem;
@@ -120,7 +124,7 @@ body {
 
 .action__btn:hover {
     background-color: var(--color-fondo);
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border-gray);
     box-shadow: none;
     cursor: pointer;
 }
@@ -142,7 +146,7 @@ body {
     background-color: var(--color-fondo);
     width: 1.6rem;
     height: 1.6rem;
-    border: 2px solid #f6f6f7;
+    border: 2px solid var(--color-border-light);
 }
 
 .action__result {
@@ -165,10 +169,10 @@ body {
 .action__popup {
     display: none;
     position: absolute;
-    background-color: var(--color-border);
+    background-color: var(--color-border-gray);
     padding: 0.6rem 1rem;
     z-index: 2;
-    border: 1px solid #f6f6f7;
+    border: 1px solid var(--color-border-light);
     border-radius: 5px;
     color: black;
     font-weight: 100;
@@ -182,27 +186,25 @@ body {
 .main__conversions {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     column-gap: 10px;
 }
-.action__btn_models {
-    width: 5rem;
+.action__btn_models,
+.action__btn_selected {
+    width: 7.5rem;
     height: 3rem;
     padding: 1rem;
 }
 
 .action__btn_selected {
-    width: 5rem;
-    height: 3rem;
-    padding: 1rem;
     border-radius: 0.5rem;
     font-family: FredokaOne;
     font-size: 0.9rem;
     letter-spacing: 1px;
     color: var(--color-primaryText);
     background-color: var(--color-fondo);
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border-gray);
 }
 
 /** button image  */

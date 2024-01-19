@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./assets/styles/style.module.css";
-import image from "./assets/img/hogar.jpg";
+import { images } from "./assets/img/images/images.js";
 import { ButtonSelectorComponent } from "./components/ButtonSelectorComponent";
 import { Helmet } from "react-helmet";
 import { ButtonConversionsComponent } from "./components/ButtonConversionsComponent";
 import { ButtonImageComponent } from "./components/ButtonImageComponent";
 
 const models = ["Hexa", "CMYK", "RGB"];
+
+/* imagen por defecto */
+
+const indiceRandom = Math.floor(Math.random() * images.length);
+
+const image = images[indiceRandom];
+
 function App() {
     const [uploadImage, setUploadImage] = useState("");
     const [colorHexa, setColorHexa] = useState(null);
