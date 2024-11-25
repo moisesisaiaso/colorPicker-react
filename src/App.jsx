@@ -5,6 +5,7 @@ import { ButtonSelectorComponent } from "./components/ButtonSelectorComponent";
 import { Helmet } from "react-helmet";
 import { ButtonConversionsComponent } from "./components/ButtonConversionsComponent";
 import { ButtonImageComponent } from "./components/ButtonImageComponent";
+import { FooterContent } from "./components/FooterContent.jsx";
 
 const models = ["Hexa", "CMYK", "RGB"];
 
@@ -60,6 +61,7 @@ function App() {
     return (
         <>
             <Helmet>
+                {/* importacion como CDN de la libreria ntc.jss (ntc -> Name that Color JavaScript) */}
                 <script type="text/javascript" src="https://chir.ag/projects/ntc/ntc.js"></script>
             </Helmet>
             <section className={style.container}>
@@ -128,7 +130,7 @@ function App() {
                                     </div>
 
                                     {/* lef y top corresponde a (x,y) como si fuera un vector en el plano carteciano, de esta manera estoy dando las cordenadas para el popup */}
-                                    {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese la do así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
+                                    {/* se utiliza left y top para establecer los valores de coordenada por que el valor que la coordenada left va a generar espacio de hizquierda, es como si se le aplicaran margenes de ese lado así mismo en top va a dejar espacio en la parte superior lo que genera la ilusion que el popup está siendo tomado desde la esquina superior hizquierda */}
                                 </div>
 
                                 <div className={style.main__conversions}>
@@ -151,7 +153,9 @@ function App() {
                         )}
                     </div>
                 </main>
-                <footer> &copy; DESARROLADO POR MOISES ORTIZ GRACIA </footer>
+                <footer>
+                    <FooterContent />
+                </footer>
             </section>
         </>
     );

@@ -47,7 +47,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 .container__title {
@@ -108,7 +108,7 @@ body {
 }
 
 .action__btn {
-    width: 25rem;
+    width: 30rem;
     height: 4rem;
     padding: 1rem;
     background-color: var(--color-principal);
@@ -192,7 +192,7 @@ body {
 }
 .action__btn_models,
 .action__btn_selected {
-    width: 7.5rem;
+    width: 9rem;
     height: 3rem;
     padding: 1rem;
 }
@@ -211,7 +211,7 @@ body {
 
 .action__upload {
     height: 9rem;
-    width: 25rem;
+    width: 30rem;
     background-color: var(--color-principal);
     padding: 1rem;
     border-radius: 15px;
@@ -248,10 +248,123 @@ input {
     font-family: RalewayLight;
 }
 
-footer {
+/** Footer */
+
+/* footer {
     text-align: center;
     color: var(--color-secundaryText);
     font-family: Raleway;
     font-size: 0.8rem;
     margin-bottom: -30px;
+} */
+
+footer {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1rem;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+footer h5 {
+    font-family: Raleway;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: var(--color-secundaryText);
+    margin-bottom: 0 !important;
+}
+
+.footerInfo {
+    cursor: pointer;
+}
+
+.footerInfo > img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.footerInfo:hover .contact {
+    display: block;
+}
+
+/*^contactame */
+.contact {
+    position: fixed;
+    display: none;
+    z-index: 10;
+    right: 1.5rem;
+    bottom: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 1px 4px rgb(147, 146, 146);
+}
+
+.contact:hover {
+    display: block;
+}
+
+.contact h2 {
+    margin-bottom: 1.5rem;
+}
+
+.contact h2,
+.contact h3,
+.contact_formatos {
+    margin-bottom: 1.5rem;
+    font-weight: 550;
+    color: #1f2937;
+}
+
+.contact h3 {
+    margin-top: 1.5rem;
+}
+
+.contact img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.contact div {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-top: 0.6rem;
+}
+
+.subrayar {
+    background-color: #ffca5f;
+    border: 1px solid #d68f00;
+    border-radius: 4px;
+    padding: 0px 1px 0px 3px;
+}
+
+@media screen and (max-width: 600px) {
+    .container__header,
+    footer {
+        padding-top: 3rem;
+    }
+
+    .main__conversions {
+        flex-grow: 1;
+    }
+
+    .action__btn_models,
+    .action__btn_selected {
+        flex-basis: 10rem;
+    }
+
+    .action__upload,
+    .action__btn,
+    .main__action {
+        width: 100%;
+    }
 }
