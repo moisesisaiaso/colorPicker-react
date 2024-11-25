@@ -29,7 +29,8 @@ export const FooterContent = () => {
                             Si utilizas varias
                             <span className={style.subrayar}>pantallas extendidas</span>, podrás
                             desplazarte con el selector tanto dentro como fuera del navegador para
-                            seleccionar el color de cualquier imagen.
+                            seleccionar el color de
+                            <span className={style.subrayar}>cualquier imagen</span>.
                         </p>
                         <h3>Formatos compatibles: </h3>
                         <div>

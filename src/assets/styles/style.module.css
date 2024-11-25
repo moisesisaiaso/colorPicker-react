@@ -344,7 +344,8 @@ footer h5 {
     background-color: #ffca5f;
     border: 1px solid #d68f00;
     border-radius: 4px;
-    padding: 0px 1px 0px 3px;
+    padding: 0px 2px 0px 4px;
+    margin: 0 5px;
 }
 
 @media screen and (max-width: 600px) {
